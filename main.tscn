@@ -1,0 +1,77 @@
+[gd_scene load_steps=9 format=3 uid="uid://bj7i7wmm7ymc0"]
+
+[ext_resource type="PackedScene" uid="uid://v17mowi5c1ui" path="res://arm.tscn" id="1_by45x"]
+[ext_resource type="Script" path="res://main.gd" id="1_glntb"]
+[ext_resource type="FontFile" uid="uid://f5gp6t8dd6qw" path="res://fonts/LinuxLibertine.tres" id="2_8vbu2"]
+[ext_resource type="Script" path="res://intro_sprite.gd" id="3_xdfkx"]
+[ext_resource type="Texture2D" uid="uid://5xojoyrwmb6b" path="res://text-quote.jpg" id="4_ndxhc"]
+[ext_resource type="FontFile" uid="uid://bk2w46h7lskng" path="res://fonts/IBMPlexSans-Regular.ttf" id="5_bfxm3"]
+[ext_resource type="Script" path="res://count_Label.gd" id="7_eg2ve"]
+[ext_resource type="PackedScene" uid="uid://cflot7xcjjgxp" path="res://control.tscn" id="8_h5jvu"]
+
+[node name="Main" type="Node2D"]
+position = Vector2(6, 5)
+script = ExtResource("1_glntb")
+
+[node name="arm1" parent="." instance=ExtResource("1_by45x")]
+position = Vector2(985, 564)
+
+[node name="arm2" parent="." instance=ExtResource("1_by45x")]
+position = Vector2(596, 564)
+
+[node name="arm3" parent="." instance=ExtResource("1_by45x")]
+position = Vector2(188, 560)
+
+[node name="count_Label" type="Label" parent="."]
+offset_left = 846.0
+offset_top = 10.0
+offset_right = 1063.0
+offset_bottom = 100.0
+theme_override_colors/font_color = Color(0.580392, 0.733333, 0.454902, 1)
+theme_override_fonts/font = ExtResource("5_bfxm3")
+theme_override_font_sizes/font_size = 38
+text = "30 trials left"
+script = ExtResource("7_eg2ve")
+
+[node name="explain_Label" type="Label" parent="."]
+offset_top = -5.0
+offset_right = 612.0
+offset_bottom = 200.0
+theme_override_colors/font_color = Color(0.580392, 0.733333, 0.454902, 1)
+theme_override_fonts/font = ExtResource("5_bfxm3")
+theme_override_font_sizes/font_size = 43
+text = "Pull the arms and see
+how much cash they give you. 
+Try to earn as much as you can. "
+
+[node name="popup" parent="." instance=ExtResource("8_h5jvu")]
+
+[node name="end_game_timer_come" type="Timer" parent="."]
+wait_time = 6.0
+
+[node name="end_game_timer_go" type="Timer" parent="."]
+wait_time = 4.0
+
+[node name="intro_sprite" type="Sprite2D" parent="."]
+light_mask = 0
+script = ExtResource("3_xdfkx")
+
+[node name="intro_rect" type="Sprite2D" parent="intro_sprite"]
+position = Vector2(569, 313)
+scale = Vector2(1.30891, 1.02964)
+texture = ExtResource("4_ndxhc")
+
+[node name="intro_text" type="RichTextLabel" parent="intro_sprite"]
+light_mask = 0
+offset_left = 147.0
+offset_top = 95.0
+offset_right = 1013.0
+offset_bottom = 535.0
+theme_override_colors/default_color = Color(0.980392, 0.666667, 0.541176, 1)
+theme_override_fonts/normal_font = ExtResource("2_8vbu2")
+theme_override_font_sizes/normal_font_size = 45
+bbcode_enabled = true
+text = "Welcome, I hope you have had a great experiment so far. Now, let's play a simple game called bandits of UT!"
+
+[connection signal="timeout" from="end_game_timer_come" to="." method="_on_end_game_timer_come_timeout"]
+[connection signal="timeout" from="end_game_timer_go" to="." method="_on_end_game_timer_go_timeout"]
