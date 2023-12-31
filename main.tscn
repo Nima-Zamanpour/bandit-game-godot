@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://main.gd" id="1_glntb"]
 [ext_resource type="FontFile" uid="uid://f5gp6t8dd6qw" path="res://fonts/LinuxLibertine.tres" id="2_8vbu2"]
 [ext_resource type="Script" path="res://intro_sprite.gd" id="3_xdfkx"]
-[ext_resource type="Texture2D" uid="uid://5xojoyrwmb6b" path="res://text-quote.jpg" id="4_ndxhc"]
+[ext_resource type="Texture2D" uid="uid://rcjpok3nuddu" path="res://text-quote.jpg" id="4_ndxhc"]
 [ext_resource type="FontFile" uid="uid://bk2w46h7lskng" path="res://fonts/IBMPlexSans-Regular.ttf" id="5_bfxm3"]
 [ext_resource type="Script" path="res://count_Label.gd" id="7_eg2ve"]
 [ext_resource type="PackedScene" uid="uid://cflot7xcjjgxp" path="res://control.tscn" id="8_h5jvu"]

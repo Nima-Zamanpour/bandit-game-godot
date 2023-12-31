@@ -13,7 +13,7 @@ func reduce_one_trial():
 		modulate = Color(1, 0, 0, 1)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if trials_left>0:
 		text = str(trials_left) + ' trails left'
 	else:
