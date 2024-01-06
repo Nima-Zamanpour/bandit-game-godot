@@ -1,13 +1,13 @@
 [gd_scene load_steps=10 format=3 uid="uid://v17mowi5c1ui"]
 
 [ext_resource type="Script" path="res://Area2D.gd" id="1_4052s"]
-[ext_resource type="Texture2D" uid="uid://dfa4ia3jmpnl1" path="res://lever.png" id="2_ypk0t"]
-[ext_resource type="Texture2D" uid="uid://cw7hyu5yni8o5" path="res://gear.png" id="4_icj1k"]
+[ext_resource type="Texture2D" uid="uid://bqaxm615qx15d" path="res://lever.png" id="2_ypk0t"]
+[ext_resource type="Texture2D" uid="uid://cknnqfaogae3i" path="res://gear.png" id="4_icj1k"]
 [ext_resource type="Script" path="res://CollisionPolygon2D.gd" id="4_vaopn"]
 [ext_resource type="FontFile" uid="uid://br36wwv5wc2fi" path="res://fonts/SHPinscher-Regular.otf" id="6_s738y"]
 [ext_resource type="Script" path="res://motor.gd" id="6_x6rlm"]
 [ext_resource type="Script" path="res://Label.gd" id="7_2gxbn"]
-[ext_resource type="AudioStream" uid="uid://rmt8bpycysi3" path="res://lever_sound.mp3" id="8_gl07a"]
+[ext_resource type="AudioStream" uid="uid://cqbnjtaqnum1e" path="res://lever_sound.mp3" id="8_gl07a"]
 
 [sub_resource type="GDScript" id="GDScript_q26f5"]
 script/source = "extends Sprite2D
@@ -58,8 +58,8 @@ theme_override_font_sizes/font_size = 60
 autowrap_mode = 3
 script = ExtResource("7_2gxbn")
 
-[node name="label_timer" type="Timer" parent="Area2D/cash_Label"]
-wait_time = 5.0
+[node name="cash_timer" type="Timer" parent="Area2D/cash_Label"]
+wait_time = 1.5
 
 [node name="lever_sound" type="AudioStreamPlayer2D" parent="Area2D"]
 position = Vector2(119, 73)
@@ -68,4 +68,4 @@ stream = ExtResource("8_gl07a")
 [connection signal="pull" from="Area2D" to="Area2D" method="_on_pull"]
 [connection signal="timeout" from="Area2D/lock_timer" to="Area2D" method="_on_lock_timer_timeout"]
 [connection signal="timeout" from="Area2D/lever_timer" to="Area2D" method="_on_lever_timer_timeout"]
-[connection signal="timeout" from="Area2D/cash_Label/label_timer" to="Area2D/cash_Label" method="_on_label_timer_timeout"]
+[connection signal="timeout" from="Area2D/cash_Label/cash_timer" to="Area2D/cash_Label" method="_on_cash_timer_timeout"]

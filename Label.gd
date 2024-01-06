@@ -14,7 +14,8 @@ func generateNormalRandom(prob_1) -> float:
 
 
 func show_score(prob_1):
-	$label_timer.start()
+	modulate = Color(0.3, 0.8, 0.3, 1)
+	$cash_timer.start()
 	show()
 	var cash = generateNormalRandom(prob_1)
 	var main = get_node("/root/Main") #add to arm
@@ -22,10 +23,12 @@ func show_score(prob_1):
 	
 	text = '$' + str(cash)
 	
+	
+
+
+
+func _on_cash_timer_timeout():
 	var tween = create_tween().set_parallel(true)
-	tween.tween_property(self, "position", original_pos+Vector2(0,-100), 3.0).set_trans(1)
-	
-	tween.tween_property(self, "modulate",  Color(0.3, 0.8, 0.3, 0), 3).set_trans(Tween.TRANS_LINEAR)
-	
-	modulate = Color(0.3, 0.8, 0.3, 1)
-	position = original_pos
+	#tween.tween_property(self, "position", original_pos+Vector2(0,-100), 3.0).set_trans(1)
+	tween.tween_property(self, "modulate",  Color(0.3, 0.8, 0.3, 0), 0.7).set_trans(1)
+	#position = original_pos

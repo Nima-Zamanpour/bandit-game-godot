@@ -14,13 +14,13 @@ position = Vector2(6, 5)
 script = ExtResource("1_glntb")
 
 [node name="arm1" parent="." instance=ExtResource("1_by45x")]
-position = Vector2(985, 564)
+position = Vector2(985, 550)
 
 [node name="arm2" parent="." instance=ExtResource("1_by45x")]
-position = Vector2(596, 564)
+position = Vector2(596, 550)
 
 [node name="arm3" parent="." instance=ExtResource("1_by45x")]
-position = Vector2(188, 560)
+position = Vector2(188, 550)
 
 [node name="count_Label" type="Label" parent="."]
 offset_left = 846.0
@@ -48,6 +48,7 @@ Try to earn as much as you can. "
 
 [node name="end_game_timer_come" type="Timer" parent="."]
 wait_time = 6.0
+one_shot = true
 
 [node name="end_game_timer_go" type="Timer" parent="."]
 wait_time = 4.0
@@ -72,6 +73,9 @@ theme_override_fonts/normal_font = ExtResource("2_8vbu2")
 theme_override_font_sizes/normal_font_size = 45
 bbcode_enabled = true
 text = "Welcome, I hope you have had a great experiment so far. Now, let's play a simple game called bandits of UT!"
+
+[node name="button_timer" type="Timer" parent="."]
+wait_time = 1e+09
 
 [connection signal="timeout" from="end_game_timer_come" to="." method="_on_end_game_timer_come_timeout"]
 [connection signal="timeout" from="end_game_timer_go" to="." method="_on_end_game_timer_go_timeout"]

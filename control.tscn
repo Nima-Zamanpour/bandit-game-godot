@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cflot7xcjjgxp"]
+[gd_scene load_steps=4 format=3 uid="uid://cflot7xcjjgxp"]
 
 [ext_resource type="Script" path="res://popup.gd" id="1_b21u6"]
 [ext_resource type="FontFile" uid="uid://bk2w46h7lskng" path="res://fonts/IBMPlexSans-Regular.ttf" id="2_1bqwk"]
+[ext_resource type="FontFile" uid="uid://f5gp6t8dd6qw" path="res://fonts/LinuxLibertine.tres" id="3_aravk"]
 
 [node name="popup" type="Control"]
 layout_mode = 3
@@ -17,34 +18,12 @@ grow_vertical = 2
 scale = Vector2(0.2, 0.2)
 script = ExtResource("1_b21u6")
 
-[node name="menu" type="OptionButton" parent="."]
-layout_mode = 0
-offset_left = 210.0
-offset_top = 201.0
-offset_right = 406.0
-offset_bottom = 286.0
-theme_override_constants/h_separation = 0
-theme_override_constants/arrow_margin = 0
-theme_override_constants/outline_size = 0
-theme_override_constants/modulate_arrow = 0
-theme_override_fonts/font = ExtResource("2_1bqwk")
-theme_override_font_sizes/font_size = 33
-alignment = 1
-item_count = 3
-selected = 0
-popup/item_0/text = "Right arm"
-popup/item_0/id = 0
-popup/item_1/text = "Middle arm"
-popup/item_1/id = 1
-popup/item_2/text = "Left arm"
-popup/item_2/id = 2
-
 [node name="HSlider" type="HSlider" parent="."]
 layout_mode = 0
-offset_left = 200.0
-offset_top = 325.0
-offset_right = 480.0
-offset_bottom = 373.0
+offset_left = 425.0
+offset_top = 225.0
+offset_right = 705.0
+offset_bottom = 273.0
 max_value = 5.0
 tick_count = 6
 ticks_on_borders = true
@@ -55,8 +34,8 @@ offset_right = 40.0
 offset_bottom = 23.0
 theme_override_fonts/font = ExtResource("2_1bqwk")
 theme_override_font_sizes/font_size = 40
-text = "Now choose the arm that you think  gives the most money
-Please also report your confidence about it on a 0-5 scale
+text = "Now choose the arm that you think  gives the most money.
+Please also report your confidence about it on a 0-5 scale.
 Then press submit
 "
 
@@ -70,7 +49,37 @@ theme_override_fonts/font = ExtResource("2_1bqwk")
 theme_override_font_sizes/font_size = 40
 text = "Submit"
 
-[connection signal="item_selected" from="menu" to="." method="_on_menu_item_selected"]
+[node name="arm1" type="Button" parent="."]
+layout_mode = 0
+offset_left = 900.0
+offset_top = 350.0
+offset_right = 1080.0
+offset_bottom = 440.0
+theme_override_fonts/font = ExtResource("3_aravk")
+theme_override_font_sizes/font_size = 50
+text = "Arm 1"
+
+[node name="arm2" type="Button" parent="."]
+offset_left = 515.0
+offset_top = 350.0
+offset_right = 695.0
+offset_bottom = 440.0
+theme_override_fonts/font = ExtResource("3_aravk")
+theme_override_font_sizes/font_size = 50
+text = "Arm 2"
+
+[node name="arm3" type="Button" parent="."]
+offset_left = 105.0
+offset_top = 350.0
+offset_right = 285.0
+offset_bottom = 440.0
+theme_override_fonts/font = ExtResource("3_aravk")
+theme_override_font_sizes/font_size = 50
+text = "Arm 3"
+
 [connection signal="drag_ended" from="HSlider" to="." method="_on_h_slider_drag_ended"]
 [connection signal="value_changed" from="HSlider" to="." method="_on_h_slider_value_changed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="arm1" to="." method="_on_arm_1_pressed"]
+[connection signal="pressed" from="arm2" to="." method="_on_arm_2_pressed"]
+[connection signal="pressed" from="arm3" to="." method="_on_arm_3_pressed"]

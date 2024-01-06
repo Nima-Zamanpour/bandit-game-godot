@@ -2,7 +2,7 @@ extends Sprite2D
 
 var originalPosition: Vector2
 var minAmplitude: float = 0.0
-var maxAmplitude: float = 5.0
+var maxAmplitude: float = 0.0
 var amplitude:float
 var parentScript: Node2D
 
