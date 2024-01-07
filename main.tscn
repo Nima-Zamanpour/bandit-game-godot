@@ -54,7 +54,6 @@ one_shot = true
 wait_time = 4.0
 
 [node name="intro_sprite" type="Sprite2D" parent="."]
-visible = false
 light_mask = 0
 script = ExtResource("3_xdfkx")
 
