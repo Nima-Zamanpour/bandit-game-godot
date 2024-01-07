@@ -11,6 +11,7 @@ func _ready():
 	$arm2/Area2D.set_prob_1(0.5)
 	$arm3/Area2D.set_prob_1(0.4)
 	$popup.hide()
+	$next_try_button.hide()
 	
 
 
@@ -30,7 +31,6 @@ func  perform_endgame():
 	$end_game_timer_come.start()
 	for i in range(click_times.size()-1):
 		click_intervals.append(click_times[i+1]-click_times[i])
-	print(click_intervals)
 	
 	
 func _on_end_game_timer_come_timeout(): 
@@ -44,3 +44,20 @@ func _on_end_game_timer_come_timeout():
 func _on_end_game_timer_go_timeout():
 	$explain_Label.hide()
 	$count_Label.hide()
+
+
+func _on_next_try_button_pressed():
+	master_lock = false
+	$next_try_button.hide()
+	$arm1.show()	
+	$arm2.show()	
+	$arm3.show()	
+
+
+func _on_next_try_timer_timeout():
+	if $count_Label.trials_left>0:
+		master_lock = true
+		$next_try_button.show()
+		$arm1.hide()	
+		$arm2.hide()	
+		$arm3.hide()	

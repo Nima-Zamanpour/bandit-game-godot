@@ -20,7 +20,7 @@ func show_score(prob_1):
 	var cash = generateNormalRandom(prob_1)
 	var main = get_node("/root/Main") #add to arm
 	main.add_arm_to_list(self.get_parent().get_parent().name, cash)
-	
+	main
 	text = '$' + str(cash)
 	
 	

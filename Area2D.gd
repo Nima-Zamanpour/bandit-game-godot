@@ -26,6 +26,8 @@ func _input(event): # when you click
 			main.click_times.append(Time.get_ticks_msec())
 			$lever_sound.play()
 			pull.emit()
+			var next_try_timer = get_node("/root/Main/next_try_timer") #start next try button timer
+			next_try_timer.start()
 		if first_click:
 			first_click = false
 
@@ -35,7 +37,7 @@ func _on_lever_timer_timeout():
 	tween.tween_property($lever, "rotation", deg_to_rad(-45), 1).set_trans(Tween.TRANS_BACK)
 
 func _on_lock_timer_timeout():
-	main.master_lock = false
+	#main.master_lock = false
 	$cash_Label.show_score(prob_1)
 	$lock_timer.stop()
 
