@@ -30,7 +30,6 @@ func  perform_endgame():
 	$end_game_timer_come.start()
 	for i in range(click_times.size()-1):
 		click_intervals.append(click_times[i+1]-click_times[i])
-	print(click_intervals)
 	
 	
 func _on_end_game_timer_come_timeout(): 
